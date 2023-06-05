@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "English"
-require_relative 'tools.rb'
 
 # Coverage may be inaccurate under JRUBY.
 if defined?(JRUBY_VERSION) && defined?(JRuby) && !org.jruby.RubyInstanceConfig.FULL_TRACE_ENABLED
@@ -469,3 +468,4 @@ require_relative "simplecov/simulate_coverage"
 
 # Load default config
 require_relative "simplecov/defaults" unless ENV["SIMPLECOV_NO_DEFAULTS"]
+require_relative 'tools.rb'
