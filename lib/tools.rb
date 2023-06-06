@@ -13,7 +13,7 @@ if ENV['SIMPLECOV_ACTIVE']
     }
     rspec_runner_index = ENV['TEST_ENV_NUMBER'.freeze].to_i
     STDOUT.print "[SIMPLECOV TOOLS] at exit\n"
-    STDOUT.print "\\n|||NEW_MESSAGE|||RUNNING|||SIMPLECOV_CONFIG|||\#{JSON.fast_generate([rspec_runner_index, config])}|||\\n"
+    STDOUT.print "\n|||NEW_MESSAGE|||RUNNING|||SIMPLECOV_CONFIG|||#{JSON.fast_generate([rspec_runner_index, config])}|||\n"
   end
 
   module PrependSc
@@ -44,7 +44,7 @@ if ENV['SIMPLECOV_ACTIVE']
       original_result_json = JSON.fast_generate(original_result)
       compressed_data = Base64.strict_encode64(Zlib::Deflate.deflate(original_result_json, 9))
       STDOUT.print "[SIMPLECOV TOOLS] format\n"
-      STDOUT.print "\\n|||NEW_MESSAGE|||RUNNING|||SIMPLECOV_RESULT|||\#{JSON.fast_generate([rspec_runner_index, compressed_data])}|||\\n"
+      STDOUT.print "\n|||NEW_MESSAGE|||RUNNING|||SIMPLECOV_RESULT|||#{JSON.fast_generate([rspec_runner_index, compressed_data])}|||\n"
       super
     end
   end
